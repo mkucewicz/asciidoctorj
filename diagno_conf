@@ -1,0 +1,141 @@
+= Konfiguracja routra Mikrotik RB3011UiAS-RM (DIAGNO-MED)
+SABIOS, Mariusz Kucewicz <mariusz.kucewicz@sabios.eu>
+v1.0, 2019-09-02
+:doctype: article
+:toc: left
+:toc-title: Spis treści
+
+
+
+== Wstęp
+Dostępny w szerokiej ofercie funkcjonalnych routerów MikroTik model RB3011UiAS-RM jest wyposażony w 10 portów Gigabit Ethernet oraz SFP i USB 3.0. Urządzenie może być montowane w szafie rack. Na przednim panelu umieszczony jest dotykowy panel LED. Produkt wyróżnia się wysoką wydajnością. Można do niego podłączyć model 3G/4G lub np. pamięć zewnętrzną. Rozwiązanie oferuje częstotliwość CPU na poziomie 1,4 GHz, 1 GB pamięci RAM i łączność PoE. Bazuje na systemie operacyjnym RouterOS i może być eksploatowane w temperaturze nieprzekraczającej 70 stopni Celsjusza.
+
+== Informacje o urzadzeniu
+
+=== Wyglad
+image::https://i.mt.lv/cdn/rb_images/1407_l.jpg[mikrotik,200,200,float="center",align="center"]
+
+=== Krótka specyfikacja
+
+
+MikroTik RouterBOARD 3011UiAS with Dual core 1.4GHz ARM CPU, 1GB RAM, 10xGbit LAN, 1xSFP port, RouterOS L5, 1U rackmount case, LCD panel
+
+
+=== Informacje szczegółowe
+
+|===
+|*Producent* |Mikrotik
+|*Model* |RB3011UiAS-RM
+|*Host name* |r1.rb3011.sie.diagnomed
+|*Serial Number* |B88F0A8BF637
+|*OS Version* | 6.45.3 (stable)
+|===
+
+=== Pełna specyfikacja
+
+https://mikrotik.com/product/RB3011UiAS-RM#fndtn-specifications
+
+=== Licencje
+|===
+|*Software ID* |0M1Q-VHP4
+|*Level* |5 footnote:[https://wiki.mikrotik.com/wiki/Manual:License#License_Levels.]
+|*Features Expires In* | -
+|===
+
+
+
+
+== Użytkownicy
+
+|===
+|*Użytkownik* | *Hasło* | *Uprawnienia*
+|admin | - | pełne
+|sabios | - | pełne
+|===
+
+
+
+== Fizyczne interface'y
+
+|===
+|*sfp* | WAN (not connected)
+|*ether1* |WAN (<- DSL ORANGE)
+|*ether2,3,4,5,6,7,8,10* |LAN not connected
+|*ether9* |LAN (-> TP Link smart switch)
+|*bridge* | ports 2,3,4,5,6,7,8,9,10,sfp
+|===
+
+
+
+== Adresacja IP
+
+=== WAN interface
+|===
+|*ISP* |Orange
+|*MAC address* |74:4D:28:B2:2C:FC
+|*Adres IP* |83.13.229.218
+|*Brama* |83.13.229.217
+|*Maska* |255.255.255.252
+|===
+
+
+=== Network
+|===
+|*Router IP* |10.0.0.1
+|*Network* |10.0.0.0/24
+|*DHCP* |on
+|*DHCP pool* |10.0.0.60-10.0.0.79
+|*DNS server* |194.204.159.1 / 194.204.152.54
+|===
+
+
+== Routes
+
+|===
+|*Dst. Address* |*Gateway*
+|0.0.0.0/0 |83.13.229.217
+|10.0.0.0/24 |router bridge
+|83.13.229.216/30 |ether1
+|===
+
+
+== Tunnel
+
+Urovita Sp. z o.o., Chorzów, Strzelców Bytomskich 11
+|===
+|*Src. Address* |10.0.0.0/24
+|*Dst. Address* |192.168.10.0/24
+|*Protocol* |255 (all)
+|*Peer* |89.174.72.154/32
+|*Auth. Algorithms* | sha1, sha256, sha512
+|*Encr. Algorithms* | aes-128, aes-192, aes-256
+|===
+
+
+
+== Usługi routera
+
+|===
+|*SSH* |21
+|*WWW* |80
+|*WWW SSL* |443
+|===
+
+
+== Zdalny dostęp
+
+|===
+|*Użytkownik* |*Usługi*
+|admin |ssh, www
+|sabios |ssh, www
+|===
+
+
+== Pozostałe informacje
+
+|===
+|*Data zakupu* | 2019-08-22
+|*Data instalacji* | 2019-08-28
+|*Data uruchomienia* | 2019-09-02
+|===
+
